@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>homework3</title>
+        <link rel="styelsheet" type="text/css" href="style.css">
+        <body>
+            <script>
+                //ask person how long they want the password to be (8-128 chars)
+                //ask person if they want special, num, lower, upper chars
+                //at least one char type is selected
+
+
+                //variables
+                var lowercase = "abcdefghijklmnopqrstuvwxyz";
+                var uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+                var numbers = "1234567890";
+                var symbols = "!#$%&'()*+,-./:;<=>?@[]\^_`{|}~"; 
+
+
+                //this is used to "mix" the characters
+                var passwordbuild = "";
+
+
+                //this is used to build the final password
+
+                var passfinal = "";
+                
+                //ask for password length
+
+                var passlength = prompt ("How many characters do you want in the password? Must be between 8-128.")
+
+                //tell them to heck off if the length is not 8-128
+
+                if (passlength < 8 || passlength > 128) {
+                    alert("bruh that is not a number, or not between 8-128");
+                } //iS IT POSSIBLE TO STOP RUNNING AFTER THIS?
+
+                //ask what character types user wants
+
+                var addlowercase = confirm ("Do you want to add lowercase letters to your password?");
+
+                var adduppercase = confirm("Do you want to add uppercase letters to your password?");
+
+                var addnumbers = confirm ("Do you want to add numbers to your password?");
+
+                var addsymbols = confirm("Do you want to add special characters to your password?");
+
+
+                //add in the character types depending on the response
+                
+                if(addlowercase) {
+                    passwordbuild += lowercase
+                }
+
+               if(adduppercase) {
+                   passwordbuild += uppercase
+               }
+
+               if(addnumbers) {
+                   passwordbuild += numbers
+               }
+
+               if(addsymbols) {
+                   passwordbuild += symbols
+               }
+
+               if (passwordbuild === "") {
+                   alert("I cannot build a password without any characters");
+               }
+
+               //
+
+               for (var i=0; i<passlength; i++) {
+
+                passfinal = passfinal + passwordbuild.charAt(Math.floor(Math.random()* Math.floor(passwordbuild.length)));
+                
+               }
+
+               alert("your password is " + passfinal +"!!!!");
+
+
+                
+                
+
+
+               
+                
+                
+
+                
+            </script>
+        </body>
+    </head>
+</html>
